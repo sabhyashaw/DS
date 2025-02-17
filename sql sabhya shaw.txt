@@ -1,0 +1,405 @@
+ORA-00955: name is already used by an existing object
+
+
+SQL> create table student1 (roll_no int not null,Name varchar(50) not null,reg_no varchar2(6) not null,address varchar2(15) not null,phone_no number(10) null,year_admin number(4) not null,dept_code varchar2(4) not null,birthdate date not null);
+
+Table created.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLL_NO                                   NOT NULL NUMBER(38)
+ NAME                                      NOT NULL VARCHAR2(50)
+
+SQL> desc student1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLL_NO                                   NOT NULL NUMBER(38)
+ NAME                                      NOT NULL VARCHAR2(50)
+ REG_NO                                    NOT NULL VARCHAR2(6)
+ ADDRESS                                   NOT NULL VARCHAR2(15)
+ PHONE_NO                                           NUMBER(10)
+ YEAR_ADMIN                                NOT NULL NUMBER(4)
+ DEPT_CODE                                 NOT NULL VARCHAR2(4)
+ BIRTHDATE                                 NOT NULL DATE
+
+SQL> insert into student1(31,'sabhya shaw','A50','durgapur',1234567890,2023,'CSE','06-JUN-2003');
+insert into student1(31,'sabhya shaw','A50','durgapur',1234567890,2023,'CSE','06-JUN-2003')
+                     *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> insert into student1 values (31,'sabhya shaw','A50','durgapur',1234567890,2023,'CSE','06-JUN-2003');
+
+1 row created.
+
+SQL> select * from student1
+  2
+SQL> select * from student1;
+
+   ROLL_NO NAME                                               REG_NO
+---------- -------------------------------------------------- ------
+ADDRESS           PHONE_NO YEAR_ADMIN DEPT BIRTHDATE
+--------------- ---------- ---------- ---- ---------
+        31 sabhya shaw                                        A50
+durgapur        1234567890       2023 CSE  06-JUN-03
+
+
+SQL> select * from student1;
+
+   ROLL_NO NAME                                               REG_NO
+---------- -------------------------------------------------- ------
+ADDRESS           PHONE_NO YEAR_ADMIN DEPT BIRTHDATE
+--------------- ---------- ---------- ---- ---------
+        31 sabhya shaw                                        A50
+durgapur        1234567890       2023 CSE  06-JUN-03
+
+
+SQL> insert into student1 values (37,'parna','A50','kolkata',1234567890,2023,'CSE','22-AUG-2004');
+
+1 row created.
+
+SQL> insert into student1 values (12,'ROHIT','A50','kolkata',1234567890,2023,'CSE','21-JAN-2004');
+
+1 row created.
+
+SQL> insert into student1 values (23,'samay','A50','kashmir',1234567890,2023,'CSE','21-JAN-2004');
+
+1 row created.
+
+SQL> insert into student1 values (23,'RAHUL','A50','BANGLORE',1234567890,2023,'IT','01-OCT-2004');
+
+1 row created.
+
+SQL> insert into student1 values (01,'SHAGGY','A01','PANAGARH',1234567890,2023,'CSE','01-OCT-2004');
+
+1 row created.
+
+SQL> insert into student1 values (12,'ROHIT','A50','kolkata',1234567890,2023,'CSE','21-JAN-2004');
+
+1 row created.
+
+SQL> insert into student1 values (12,'kashvi','A50','kolkata',1234567890,2023,'CSE','21-JAN-2004');
+
+1 row created.
+
+SQL> select * from student1;
+
+   ROLL_NO NAME                                               REG_NO
+---------- -------------------------------------------------- ------
+ADDRESS           PHONE_NO YEAR_ADMIN DEPT BIRTHDATE
+--------------- ---------- ---------- ---- ---------
+        31 sabhya shaw                                        A50
+durgapur        1234567890       2023 CSE  06-JUN-03
+
+        37 parna                                              A50
+kolkata         1234567890       2023 CSE  22-AUG-04
+
+        12 ROHIT                                              A50
+kolkata         1234567890       2023 CSE  21-JAN-04
+
+
+   ROLL_NO NAME                                               REG_NO
+---------- -------------------------------------------------- ------
+ADDRESS           PHONE_NO YEAR_ADMIN DEPT BIRTHDATE
+--------------- ---------- ---------- ---- ---------
+        23 samay                                              A50
+kashmir         1234567890       2023 CSE  21-JAN-04
+
+        23 RAHUL                                              A50
+BANGLORE        1234567890       2023 IT   01-OCT-04
+
+         1 SHAGGY                                             A01
+PANAGARH        1234567890       2023 CSE  01-OCT-04
+
+
+   ROLL_NO NAME                                               REG_NO
+---------- -------------------------------------------------- ------
+ADDRESS           PHONE_NO YEAR_ADMIN DEPT BIRTHDATE
+--------------- ---------- ---------- ---- ---------
+        12 ROHIT                                              A50
+kolkata         1234567890       2023 CSE  21-JAN-04
+
+        12 kashvi                                             A50
+kolkata         1234567890       2023 CSE  21-JAN-04
+
+
+8 rows selected.
+
+SQL> commit
+  2  ;
+
+Commit complete.
+
+SQL> select name, address, year from student1;
+select name, address, year from student1
+                      *
+ERROR at line 1:
+ORA-00904: "YEAR": invalid identifier
+
+
+SQL> desc student1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLL_NO                                   NOT NULL NUMBER(38)
+ NAME                                      NOT NULL VARCHAR2(50)
+ REG_NO                                    NOT NULL VARCHAR2(6)
+ ADDRESS                                   NOT NULL VARCHAR2(15)
+ PHONE_NO                                           NUMBER(10)
+ YEAR_ADMIN                                NOT NULL NUMBER(4)
+ DEPT_CODE                                 NOT NULL VARCHAR2(4)
+ BIRTHDATE                                 NOT NULL DATE
+
+SQL> select name, address from student1;
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+parna                                              kolkata
+ROHIT                                              kolkata
+samay                                              kashmir
+RAHUL                                              BANGLORE
+SHAGGY                                             PANAGARH
+ROHIT                                              kolkata
+kashvi                                             kolkata
+
+8 rows selected.
+
+SQL> select name, address where dept_code='CSE' or dept_dode='IT' from student1;
+select name, address where dept_code='CSE' or dept_dode='IT' from student1
+                     *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select name, address from student1 where dept_code='CSE' or dept_dode='IT';
+select name, address from student1 where dept_code='CSE' or dept_dode='IT'
+                                                            *
+ERROR at line 1:
+ORA-00904: "DEPT_DODE": invalid identifier
+
+
+SQL> select name, address from student1 where dept_code='CSE' or dept_code='IT';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+parna                                              kolkata
+ROHIT                                              kolkata
+samay                                              kashmir
+RAHUL                                              BANGLORE
+SHAGGY                                             PANAGARH
+ROHIT                                              kolkata
+kashvi                                             kolkata
+
+8 rows selected.
+
+SQL> select name, address from student1 where dept_code='IT';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+RAHUL                                              BANGLORE
+
+SQL> select name, address from student1 where year_admin='2023';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+parna                                              kolkata
+ROHIT                                              kolkata
+samay                                              kashmir
+RAHUL                                              BANGLORE
+SHAGGY                                             PANAGARH
+ROHIT                                              kolkata
+kashvi                                             kolkata
+
+8 rows selected.
+
+SQL> select name, address from student1 where name='%a%';
+
+no rows selected
+
+SQL> select name, address from student1 where name like 'a%';
+
+no rows selected
+
+SQL> select name, address from student1 where name like 's%';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+samay                                              kashmir
+
+SQL> select name, address from student1 where name like '%a%';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+parna                                              kolkata
+samay                                              kashmir
+kashvi                                             kolkata
+
+SQL> select name, address from student1 where name like '%%b%';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+
+SQL> select name, address from student1 where name like '%a%';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+parna                                              kolkata
+samay                                              kashmir
+kashvi                                             kolkata
+
+SQL> select name from student1 where name like '%a%';
+
+NAME
+--------------------------------------------------
+sabhya shaw
+parna
+samay
+kashvi
+
+SQL> select name from student1 where name like '%%b%';
+
+NAME
+--------------------------------------------------
+sabhya shaw
+
+SQL> select name from student1 where name like '_a%';
+
+NAME
+--------------------------------------------------
+sabhya shaw
+parna
+samay
+kashvi
+
+SQL> select name from student1 where asc name;
+select name from student1 where asc name
+                                *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select name from student1 where order by asc name;
+select name from student1 where order by asc name
+                                *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select name from student1 where order by asc;
+select name from student1 where order by asc
+                                *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select name from student1 order by asc;
+select name from student1 order by asc
+                                   *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select order by name asc name from student1;
+select order by name asc name from student1
+       *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> order by name asc name from student1;
+SP2-0734: unknown command beginning "order by n..." - rest of line ignored.
+SQL> select order by name asc from student1;
+select order by name asc from student1
+       *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select name order by asc from student1;
+select name order by asc from student1
+            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select name from student1 order by asc;
+select name from student1 order by asc
+                                   *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select name from student1 order by name asc;
+
+NAME
+--------------------------------------------------
+RAHUL
+ROHIT
+ROHIT
+SHAGGY
+kashvi
+parna
+sabhya shaw
+samay
+
+8 rows selected.
+
+SQL> select name from student1 where year_admin='01-jan-2022';
+select name from student1 where year_admin='01-jan-2022'
+                                           *
+ERROR at line 1:
+ORA-01722: invalid number
+
+
+SQL> select name from student1 where year_admin='01-JAN-2022';
+select name from student1 where year_admin='01-JAN-2022'
+                                           *
+ERROR at line 1:
+ORA-01722: invalid number
+
+
+SQL> select name, address from student1 where year_admin='2022';
+
+no rows selected
+
+SQL> select name, address from student1 where year_admin='2023';
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+parna                                              kolkata
+ROHIT                                              kolkata
+samay                                              kashmir
+RAHUL                                              BANGLORE
+SHAGGY                                             PANAGARH
+ROHIT                                              kolkata
+kashvi                                             kolkata
+
+8 rows selected.
+
+SQL> select name, address from student1 where phone_no is null;
+
+no rows selected
+
+SQL> select name, address from student1 where phone_no is not null;
+
+NAME                                               ADDRESS
+-------------------------------------------------- ---------------
+sabhya shaw                                        durgapur
+parna                                              kolkata
+ROHIT                                              kolkata
+samay                                              kashmir
+RAHUL                                              BANGLORE
+SHAGGY                                             PANAGARH
+ROHIT                                              kolkata
+kashvi                                             kolkata
+
+8 rows selected.
