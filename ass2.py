@@ -40,3 +40,9 @@ import re
 matches = re.finditer('the','the rain Theater road',flags=re.IGNORECASE)
 for i in matches:
  print(i)
+#Q8
+import re
+
+txt = "The rain in Spain"
+x = re.findall("[a-m]", txt)
+print(x)
