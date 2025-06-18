@@ -44,13 +44,34 @@ print('list after removing duplicates ',s1)
 l5=[1,2,3,4,5,2,14,23,12,4,5,67,12,8]
 print('\nEvery 4th element of the list ', l5[3:14:4])
 #Q12
-t=0
-l6=[1,2,3,4,5,6]
-r=int(input('\nEnter element to search in list : '))
-for k in range(0,len(l6)):
-    if(r==l6[k]):
-        t=1
-if(t==1):
-    print('element found')
+arr = [5, 2, 9, 1, 7]
+arr.sort()
+print("Sorted array:", arr)
+
+def binary_search(arr, x):
+    l = 0
+    r = len(arr) - 1
+    while l <= r:
+        mid = l + (r - l) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            l = mid + 1
+        else:
+            r = mid - 1
+    return -1
+
+x1 = 7
+result1 = binary_search(arr, x1)
+if result1 != -1:
+    print(f"{x1} found at index {result1}")
 else:
-    print('element not found')
+    print(f"{x1} not found")
+
+x2 = 8
+result2 = binary_search(arr, x2)
+if result2 != -1:
+    print(f"{x2} found at index {result2}")
+else:
+    print(f"{x2} not found")
+
