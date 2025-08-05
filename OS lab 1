@@ -1,0 +1,216 @@
+root@CSDS-30:~# mkdir fiem_25
+root@CSDS-30:~# cd fiem_25
+root@CSDS-30:~/fiem_25# mkdir cse
+root@CSDS-30:~/fiem_25# mkdir it
+root@CSDS-30:~/fiem_25# mkdir cse_ds
+root@CSDS-30:~/fiem_25# mkdir ece
+root@CSDS-30:~/fiem_25# cd cse_ds
+root@CSDS-30:~/fiem_25/cse_ds# mkdir ml
+root@CSDS-30:~/fiem_25/cse_ds# mkdir ai
+root@CSDS-30:~/fiem_25/cse_ds# mkdir dl
+root@CSDS-30:~/fiem_25/cse_ds# cd fiem_25
+-bash: cd: fiem_25: No such file or directory
+root@CSDS-30:~/fiem_25/cse_ds# cd .
+root@CSDS-30:~/fiem_25/cse_ds# cd .
+root@CSDS-30:~/fiem_25/cse_ds# cd .fiem25
+-bash: cd: .fiem25: No such file or directory
+root@CSDS-30:~/fiem_25/cse_ds# cd .fiem_25
+-bash: cd: .fiem_25: No such file or directory
+root@CSDS-30:~/fiem_25/cse_ds# cd fiem_25
+-bash: cd: fiem_25: No such file or directory
+root@CSDS-30:~/fiem_25/cse_ds# cd ..
+root@CSDS-30:~/fiem_25# cd it
+root@CSDS-30:~/fiem_25/it# mkdir java
+root@CSDS-30:~/fiem_25/it# mkdir python
+root@CSDS-30:~/fiem_25/it# cd ..
+root@CSDS-30:~/fiem_25# cd ece
+root@CSDS-30:~/fiem_25/ece# mkdir analog
+root@CSDS-30:~/fiem_25/ece# mkdir digital
+root@CSDS-30:~/fiem_25/ece# tree
+Command 'tree' not found, but can be installed with:
+snap install tree  # version 2.1.3+pkg-5852, or
+apt  install tree  # version 2.0.2-1
+See 'snap info tree' for additional versions.
+root@CSDS-30:~/fiem_25/ece# mkfile
+mkfile: command not found
+root@CSDS-30:~/fiem_25/ece# cd..
+cd..: command not found
+root@CSDS-30:~/fiem_25/ece# cd ..
+root@CSDS-30:~/fiem_25# cd cse_ds
+root@CSDS-30:~/fiem_25/cse_ds# touch A1.txt
+root@CSDS-30:~/fiem_25/cse_ds# cat>A1.txt
+heloo this is shaggy signing off^Z
+[1]+  Stopped                 cat > A1.txt
+root@CSDS-30:~/fiem_25/cse_ds# cd..
+cd..: command not found
+root@CSDS-30:~/fiem_25/cse_ds# cd ..
+root@CSDS-30:~/fiem_25# cd ..
+root@CSDS-30:~# sudo apt install tree
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 160 not upgraded.
+Need to get 47.9 kB of archives.
+After this operation, 116 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/universe amd64 tree amd64 2.0.2-1 [47.9 kB]
+Fetched 47.9 kB in 1s (37.4 kB/s)
+Selecting previously unselected package tree.
+(Reading database ... 41917 files and directories currently installed.)
+Preparing to unpack .../tree_2.0.2-1_amd64.deb ...
+Unpacking tree (2.0.2-1) ...
+Setting up tree (2.0.2-1) ...
+Processing triggers for man-db (2.10.2-1) ...
+root@CSDS-30:~# cd fiem_25
+root@CSDS-30:~/fiem_25# tree
+.
+├── cse
+├── cse_ds
+│   ├── A1.txt
+│   ├── ai
+│   ├── dl
+│   └── ml
+├── ece
+│   ├── analog
+│   └── digital
+└── it
+    ├── java
+    └── python
+
+11 directories, 1 file
+root@CSDS-30:~/fiem_25# cd cse_ds
+root@CSDS-30:~/fiem_25/cse_ds# cd ml
+root@CSDS-30:~/fiem_25/cse_ds/ml# touch svm.txt
+root@CSDS-30:~/fiem_25/cse_ds/ml# cd ..
+root@CSDS-30:~/fiem_25/cse_ds# cd dl
+root@CSDS-30:~/fiem_25/cse_ds/dl# touch ann.txt
+root@CSDS-30:~/fiem_25/cse_ds/dl# cd ..
+root@CSDS-30:~/fiem_25/cse_ds# cd ai
+root@CSDS-30:~/fiem_25/cse_ds/ai# touch chatgpt.txt
+root@CSDS-30:~/fiem_25/cse_ds/ai# cd..
+cd..: command not found
+root@CSDS-30:~/fiem_25/cse_ds/ai# cd ..
+root@CSDS-30:~/fiem_25/cse_ds# cd ..
+root@CSDS-30:~/fiem_25# tre
+Command 'tre' not found, but can be installed with:
+apt install tre-command
+root@CSDS-30:~/fiem_25# tre
+Command 'tre' not found, but can be installed with:
+apt install tre-command
+root@CSDS-30:~/fiem_25# tree
+.
+├── cse
+├── cse_ds
+│   ├── A1.txt
+│   ├── ai
+│   │   └── chatgpt.txt
+│   ├── dl
+│   │   └── ann.txt
+│   └── ml
+│       └── svm.txt
+├── ece
+│   ├── analog
+│   └── digital
+└── it
+    ├── java
+    └── python
+
+11 directories, 4 files
+root@CSDS-30:~/fiem_25# sudo apt update
+Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+160 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@CSDS-30:~/fiem_25# cd cse_ds
+root@CSDS-30:~/fiem_25/cse_ds# deldir ml
+deldir: command not found
+root@CSDS-30:~/fiem_25/cse_ds# del A1.txt
+Command 'del' not found, did you mean:
+  command 'den' from snap den (1.2.0-0)
+  command 'mdel' from deb mtools (4.0.33-1+really4.0.32-1build1)
+  command 'hdel' from deb hfsutils (3.2.6-15build2)
+  command 'dex' from deb dex (0.9.0-1)
+  command 'deal' from deb deal (3.1.9-12)
+  command 'delp' from deb fp-utils-3.2.2 (3.2.2+dfsg-9ubuntu1)
+  command 'wdel' from deb wput (0.6.2+git20130413-11)
+  command 'qdel' from deb gridengine-client (8.1.9+dfsg-10build1)
+  command 'qdel' from deb slurm-wlm-torque (21.08.5-2ubuntu1)
+  command 'dll' from deb brickos (0.9.0.dfsg-12.2)
+  command 'delv' from deb bind9-dnsutils (1:9.18.30-0ubuntu0.22.04.2)
+  command 'el' from deb oneliner-el (0.3.6-9.1)
+See 'snap info <snapname>' for additional versions.
+root@CSDS-30:~/fiem_25/cse_ds# rmdir A1.txt
+rmdir: failed to remove 'A1.txt': Not a directory
+root@CSDS-30:~/fiem_25/cse_ds# rmdir ml
+rmdir: failed to remove 'ml': Directory not empty
+root@CSDS-30:~/fiem_25/cse_ds# mkdir lol
+root@CSDS-30:~/fiem_25/cse_ds# rmdir lol
+root@CSDS-30:~/fiem_25/cse_ds# tree
+.
+├── A1.txt
+├── ai
+│   └── chatgpt.txt
+├── dl
+│   └── ann.txt
+└── ml
+    └── svm.txt
+
+3 directories, 4 files
+root@CSDS-30:~/fiem_25/cse_ds# mkdir hello
+root@CSDS-30:~/fiem_25/cse_ds# tree
+.
+├── A1.txt
+├── ai
+│   └── chatgpt.txt
+├── dl
+│   └── ann.txt
+├── hello
+└── ml
+    └── svm.txt
+
+4 directories, 4 files
+root@CSDS-30:~/fiem_25/cse_ds# rmdir hello
+root@CSDS-30:~/fiem_25/cse_ds# tree
+.
+├── A1.txt
+├── ai
+│   └── chatgpt.txt
+├── dl
+│   └── ann.txt
+└── ml
+    └── svm.txt
+
+3 directories, 4 files
+root@CSDS-30:~/fiem_25/cse_ds# rm r ml
+rm: cannot remove 'r': No such file or directory
+rm: cannot remove 'ml': Is a directory
+root@CSDS-30:~/fiem_25/cse_ds# rm-r ml
+rm-r: command not found
+root@CSDS-30:~/fiem_25/cse_ds# rm r ml
+rm: cannot remove 'r': No such file or directory
+rm: cannot remove 'ml': Is a directory
+root@CSDS-30:~/fiem_25/cse_ds# rm -r ml
+root@CSDS-30:~/fiem_25/cse_ds# tree
+.
+├── A1.txt
+├── ai
+│   └── chatgpt.txt
+└── dl
+    └── ann.txt
+
+2 directories, 3 files
+root@CSDS-30:~/fiem_25/cse_ds# rm A1.txt
+root@CSDS-30:~/fiem_25/cse_ds# tree
+.
+├── ai
+│   └── chatgpt.txt
+└── dl
+    └── ann.txt
+
+2 directories, 2 files
+root@CSDS-30:~/fiem_25/cse_ds#
